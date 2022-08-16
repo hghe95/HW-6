@@ -4,4 +4,4 @@ Link to website: https://hghe95.github.io/HW-6/
 Screenshots:
 ![Basic UI](./Images/initial.png "Basic UI")
 ![Seattle](./Images/seattle.png "Seattle")
-![New York](./Images.newyork.png "New York")
+![New York](./Images/newyork.png "New York")
