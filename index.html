@@ -1,59 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./jass.css" />
-    <title>Weather Dashboard</title>
-  </head>
-  <body>
-    <header class = "bg-dark text-white text-center p-2">
-        <h1>Weather Dashboard</h1>
-    </header>
-    <main class="container-fluid">
-        <div class = "row">
-            <div class="col-12 col-md-3 p-2 search-column">
-                <form class = "border p-2" id = "city-search-form">
-                    <h4>Search for a City</h2>
-                    <input id="city" type = "text" autofocus = "true" class = "form-input"/>
-                    <button class = "btn btn-primary" type = "submit">Search</button>
-                </form>
-                <div class = "past-search border" id = "past-search-buttons"></div>
-            </div>
-            <div class="col-12 col-md-9">
-                <div class = "row border selected-city" id = "current-forecast">
-                    <div class = "col-12">
-                        <h2 id="searched-city"></h2>
-                        <div id = "current-weather-container" class = "list-group"></div>
-                    </div>  
-                </div>
-                <div class = "row border" id = "five-day-forecast">
-                        <h2 class= "col-12" id = "forecast"></h2>
-                        <div class = "d-flex" id = "fiveday-container"></div>
-                </div>  
-            </div>
-        </div>
-    </main>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js"
-      integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg=="
-      crossorigin="anonymous"
-    ></script>
-    <script 
-      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/utc.min.js" 
-      integrity="sha512-m00bfmYnAl3plEBlQfeQUhw/U2uvmw29V2+jxSWpAjankMWS+zAsjezbKWDEJNXqWq9o9qQZSOiA2RKDpa4D5w==" 
-      crossorigin="anonymous"
-    ></script>
-    <script 
-      src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/plugin/timezone.min.js" 
-      integrity="sha512-pslqxxHAYPCxaSeFSmXXxDkLejD5dbFVC66aiVq0z4v7VTJBU+wqcG1OpNh4p3MjS2D6NCwz/H2QmSc7dXxryg==" 
-      crossorigin="anonymous"
-    ></script>
-    <script src="script.js"></script>
-  </body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -85,9 +29,9 @@
             <input id="city" type = "text" autofocus = "true" class = "form-input"/>
             <button class = "btn btn-primary" type = "submit">Search</button>
           </form>
-          <div class = "past-search border" id = "past-search-button"></div>
+          <div class = "past-search border" id = "past-search-buttons"></div>
         </div>
-          <div class="col-12 col-md-9">
+          <div class="col-12 col-md-">
             <div class = "row border selected-city" id = "current-forecast">
                 <div class = "col-12">
                   <h2 id="searched-city"></h2>
