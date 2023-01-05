@@ -64,8 +64,8 @@ const showWeather = (weather, searchCity) => {
 const fetchUvi = (lat,lon) => {
 	const apiUrl = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&long=${lon}`
 	fetch(apiUrl)
-	.then(function(response) {
-		response.json().then(function(data){
+	.then((response) => {
+		response.json().then((data) => {
 			showUv(data)
 		});
 	});
