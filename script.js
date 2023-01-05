@@ -5,7 +5,8 @@ const searchFormEl = document.querySelector("#search-form");
 const forecastContEl = document.querySelector("#forecast-container");
 const forecastTitleEl = document.querySelector("#forecast-title");
 const searchHistCont = document.querySelector("#history");
-const pastCityButtonEl = document.querySelector("#past-city-button")
+const pastCityButtonEl = document.querySelector("#past-city-buttons");
+const pastCityEl = document.querySelector("#past-city");
 const weatherContEl = document.querySelector("#weather-container")
 
 const saveSearch = () => {
@@ -25,17 +26,17 @@ const fetchWeather = (city) => {
 const showWeather = (weather, searchCity) => {
 	//clears old search
 	forecastContEl.textContent= "";
-	citySearchInputEl.textContent=searchCity;
+	pastCityEl.textContent=searchCity;
 
 	//shows todays weather
 	let today = document.createElement("p")
 	today.textContent=` ${moment(weather.dt.value).format("M/D/YYYY")} `;
-	citySearchInputEl.appendChild(today);
+	pastCityEl.appendChild(today);
 
 	//weather icon
 	const weatherIcon = document.createElement("img")
 	weatherIcon.setAttribute("src", `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`);
-	citySearchInputEl.appendChild(weatherIcon);
+	pastCityEl.appendChild(weatherIcon);
 
 	//temperature data
 	let tempEl = document.createElement("p");
@@ -147,7 +148,7 @@ const renderCurrentWeather = (weather) => {
 	}
 
 }
-const pastSearch = (event) => {
+const pastSearchHandler = (event) => {
 	let city = event.target.getAttribute("data-city")
 	if(city) {
 		fetchWeather(city);
@@ -166,4 +167,4 @@ const pastSearchHist = (pastSearchHist) => {
 }
 
 searchFormEl.addEventListener("submit", formSubmit);
-pastCityButtonEl.addEventListener("click", pastSearch);
+pastCityButtonEl.addEventListener("click", pastSearchHandler);
