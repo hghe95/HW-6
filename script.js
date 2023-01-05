@@ -30,7 +30,7 @@ const showWeather = (weather, searchCity) => {
 
 	//shows todays weather
 	let today = document.createElement("p")
-	today.textContent=` ${moment(weather.dt.value).format("M/D/YYYY")} `;
+	today.textContent=` ${moment(weather.dt.value).format("MMM DD, YYYY")} `;
 	pastCityEl.appendChild(today);
 
 	//weather icon
@@ -53,42 +53,47 @@ const showWeather = (weather, searchCity) => {
 	windEl.textContent = `Wind Speed: ${weather.wind.speed} MPH`;
 	windEl.classList = "list-group"
 
+	// //uv index data
+	// let uviEl = document.createElement("p");
+	// uviEl.textContent = `UV Index: ${weather.main.uvi}`;
+	// uviEl.classList = "list-group"
+
 	weatherContEl.appendChild(tempEl);
 	weatherContEl.appendChild(humidEl);
 	weatherContEl.appendChild(windEl);
 
-	let lat = weather.coord.lat;
-	let lon = weather.coord.lon;
-	fetchUvi(lat,lon)
+	// let lat = weather.coord.lat;
+	// let lon = weather.coord.lon;
+	// fetchUvi(lat,lon)
 }
 
-const fetchUvi = (lat,lon) => {
-	const apiUrl = `https://api.openweathermap.org/data/2.5/uvi?appid=${apiKey}&lat=${lat}&long=${lon}`
-	fetch(apiUrl)
-	.then((response) => {
-		response.json().then((data) => {
-			showUv(data)
-		});
-	});
-}
+// const fetchUvi = (lat,lon) => {
+// 	const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
+// 	fetch(apiUrl)
+// 	.then((response) => {
+// 		response.json().then((data) => {
+// 			showUv(data)
+// 		});
+// 	});
+// }
 
-const showUv = (index) => {
-	let uviEl = document.createElement("div");
-	uviEl.textContent = `UV Index: `
-	uviEl.classList = "list-group"
-	uviValue = document.createElement("p")
-	uviValue.textContent = index.value
+// const showUv = (index) => {
+// 	let uviEl = document.createElement("div");
+// 	uviEl.textContent = `UV Index: `
+// 	uviEl.classList = "list-group"
+// 	uviValue = document.createElement("p")
+// 	uviValue.textContent = index.value
 
-	if(index.value <=2){
-		uviValue.classList = "favorable"
-	}else if(index.value >2 && index.value<=8) {
-		uviValue.classList = "moderate"
-	}else if(index.value >8) {
-		uviValue.classList = "severe"
-	}
-	uviEl.appendChild(uviValue);
-	weatherContEl.appendChild(uviEl);
-}
+// 	if(index.value <=2){
+// 		uviValue.classList = "favorable"
+// 	}else if(index.value >2 && index.value<=8) {
+// 		uviValue.classList = "moderate"
+// 	}else if(index.value >8) {
+// 		uviValue.classList = "severe"
+// 	}
+// 	uviEl.appendChild(uviValue);
+// 	weatherContEl.appendChild(uviEl);
+// }
 
 const fetchForecast = (city) => {
 	const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`
@@ -119,11 +124,11 @@ const renderCurrentWeather = (weather) => {
 	forecastTitleEl.textContent = `5-Day Forecast:`;
 
 	const forecast = weather.list;
-		for(let i = 0; i < forecast.length; i++) {
+		for(let i = 0; i < 5; i++) {
 		let dailyForecast = forecast[i];
 		
 		let forecastEl=document.createElement("div");
-		forecastEl.classList = "card bg-primary m-2";
+		forecastEl.classList = "card bg-info m-2";
 
 		let date = document.createElement("h5")
 		date.textContent= moment.unix(dailyForecast.dt).format("MMM DD, YYYY");
