@@ -49,13 +49,13 @@ const showWeather = (weather, searchCity) => {
 	humidEl.classList = "list-group"
 
 	//wind speed data
-	let windSpeedEl = document.createElement("p");
-	windSpeedEl.textContent = `Wind Speed: ${weather.wind.speed} MPH`;
-	windSpeedEl.classList = "list-group"
+	let windEl = document.createElement("p");
+	windEl.textContent = `Wind Speed: ${weather.wind.speed} MPH`;
+	windEl.classList = "list-group"
 
-	weatherContEl.appendChild(temperatureEl);
-	weatherContEl.appendChild(humidityEl);
-	weatherContEl.appendChild(windSpeedEl);
+	weatherContEl.appendChild(tempEl);
+	weatherContEl.appendChild(humidEl);
+	weatherContEl.appendChild(windEl);
 
 	let lat = weather.coord.lat;
 	let lon = weather.coord.lon;
