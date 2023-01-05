@@ -16,7 +16,7 @@ const saveSearch = () => {
 const fetchWeather = (city) => {
 	const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
 	fetch(apiUrl)
-	.then(function(response) {
+	.then((response) => {
 		response.json().then((data) => {
 			showWeather(data, city);
 		});
@@ -98,8 +98,8 @@ const showWeather = (weather, searchCity) => {
 const fetchForecast = (city) => {
 	const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`
 	fetch(apiUrl)
-	.then(function(response){
-		response.json().then(function(data){
+	.then((response) => {
+		response.json().then((data) => {
 			renderCurrentWeather(data);
 		});
 	});
@@ -124,7 +124,8 @@ const renderCurrentWeather = (weather) => {
 	forecastTitleEl.textContent = `5-Day Forecast:`;
 
 	const forecast = weather.list;
-		for(let i = 0; i < 5; i++) {
+	console.log(`5-Day Forcast: `);
+		for(let i = 0; i < 40; i=i+8) {
 		let dailyForecast = forecast[i];
 		
 		let forecastEl=document.createElement("div");
